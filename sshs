@@ -70,13 +70,13 @@ function select_option {
 
 # Read ssh config file and add host names to ss_options array
 function get_ssh_config {
-    # If $SSH_CONFIG is undefined default to using $HOME/.ssh/config
-    if [ !$SSH_CONFIG ]
+    # If $SSH_CONFIG_PATH is undefined default to using $HOME/.ssh/config
+    if [ !$SSH_CONFIG_PATH ]
     then
-        SSH_CONFIG="$HOME/.ssh/config"
+        SSH_CONFIG_PATH="$HOME/.ssh/config"
     fi
 
-    ssh_options+=( $(cat $SSH_CONFIG | egrep "^Host .*" | sed "s/^Host \(.*\)$/\1/") )
+    ssh_options+=( $(cat $SSH_CONFIG_PATH | egrep "^Host .*" | sed "s/^Host \(.*\)$/\1/") )
 }
 
 ###### Main ######
