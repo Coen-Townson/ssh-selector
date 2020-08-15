@@ -11,5 +11,5 @@ By default `sshs` will read a properly formatted ssh config file (https://linux.
 Add `sshs` to `$PATH` or create a symlink in either `/bin` or `/usr/bin` to use in any terminal e.g. `ln -s $(pwd)/sshs /bin/sshs`.
 
 # Future extensions
-Command line argument to connect normally like ssh (use case is having a single short alias for ssh(s))
-Command line "search" argument to only list hosts with some match/substring to argument
+- Command line argument to connect normally like ssh (use case is having a single short alias for ssh(s))
+- Command line "search" argument to only list hosts with some match/substring to argument
