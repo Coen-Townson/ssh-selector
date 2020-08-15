@@ -76,7 +76,13 @@ function get_ssh_config {
         SSH_CONFIG_PATH="$HOME/.ssh/config"
     fi
 
-    ssh_options+=( $(cat $SSH_CONFIG_PATH | egrep "^Host .*" | sed "s/^Host \(.*\)$/\1/") )
+    if ls "$SSH_CONFIG_PATH" >/dev/null 2>&1
+    then
+        ssh_options+=( $(cat $SSH_CONFIG_PATH | egrep "^Host .*" | sed "s/^Host \(.*\)$/\1/") )
+    else
+        echo "Could not find configuration file. Please check that $SSH_CONFIG_PATH exists."
+        exit 1
+    fi
 }
 
 ###### Main ######
