@@ -68,7 +68,7 @@ function select_option {
     return $selected
 }
 
-# Read ssh config file and add host names to ss_options array
+# Read ssh config file and add host names to ssh_options array
 function get_ssh_config {
     # If $SSH_CONFIG_PATH is undefined default to using $HOME/.ssh/config
     if [ !$SSH_CONFIG_PATH ]
@@ -98,7 +98,7 @@ select_option "${options[@]}"
 choice=$?
 
 # Process input
-if [ ${options[$choice]} = "Cancel" ]
+if [ "${options[$choice]}" = "Cancel" ]
 then
     exit 0
 else
